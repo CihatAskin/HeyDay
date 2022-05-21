@@ -1,0 +1,12 @@
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\bin\Debug\net6.0\Heyday.Application.deps.json
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\bin\Debug\net6.0\Heyday.Application.dll
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\bin\Debug\net6.0\Heyday.Application.pdb
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\obj\Debug\net6.0\Heyday.Application.csproj.AssemblyReference.cache
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\obj\Debug\net6.0\Heyday.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\obj\Debug\net6.0\Heyday.Application.AssemblyInfoInputs.cache
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\obj\Debug\net6.0\Heyday.Application.AssemblyInfo.cs
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\obj\Debug\net6.0\Heyday.Application.csproj.CoreCompileInputs.cache
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\obj\Debug\net6.0\Heyday.Application.dll
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\obj\Debug\net6.0\refint\Heyday.Application.dll
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\obj\Debug\net6.0\Heyday.Application.pdb
+C:\Users\Cihat\Documents\WorkCihat\Projeler\Heyday\src\Core\Heyday.Application\obj\Debug\net6.0\ref\Heyday.Application.dll
