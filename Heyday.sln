@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{20CD1DCA-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D170301E-2D94-4394-920B-558A7CA7CD14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heyday.Application", "src\Core\Heyday.Application\Heyday.Application.csproj", "{FBBA8F5E-B9AF-417F-8020-2EA65150ED22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heyday.Application", "src\Core\Heyday.Application\Heyday.Application.csproj", "{FBBA8F5E-B9AF-417F-8020-2EA65150ED22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heyday.Infrastructure", "src\Heyday.Infrastructure\Heyday.Infrastructure.csproj", "{5411B9B4-443B-4B64-A2A9-4667A1199060}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heyday.Infrastructure", "src\Heyday.Infrastructure\Heyday.Infrastructure.csproj", "{5411B9B4-443B-4B64-A2A9-4667A1199060}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
