@@ -22,7 +22,7 @@ namespace Heyday.Infrastructure.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=localhost;Database=heyday;Username=local_user;Password=local_user+-2020*");
+                optionsBuilder.UseNpgsql("Host=localhost;Database=heyday;Username=local_user;Password=*****");
             }
         }
 
