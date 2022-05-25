@@ -3,6 +3,7 @@ using System;
 using Heyday.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Heyday.Infrastructure.Migrations
 {
     [DbContext(typeof(heydayContext))]
-    partial class heydayContextModelSnapshot : ModelSnapshot
+    [Migration("20220525213614_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,8 +68,6 @@ namespace Heyday.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("id");
-
-                    b.HasIndex("manager_id");
 
                     b.ToTable("schedules");
                 });
@@ -124,17 +124,6 @@ namespace Heyday.Infrastructure.Migrations
                     b.ToTable("user_schedule");
                 });
 
-            modelBuilder.Entity("Heyday.Domain.Entities.Schedule", b =>
-                {
-                    b.HasOne("Heyday.Domain.Entities.User", "user")
-                        .WithMany("schedules")
-                        .HasForeignKey("manager_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("user");
-                });
-
             modelBuilder.Entity("Heyday.Domain.Entities.UserSchedule", b =>
                 {
                     b.HasOne("Heyday.Domain.Entities.Schedule", "schedule")
@@ -161,8 +150,6 @@ namespace Heyday.Infrastructure.Migrations
 
             modelBuilder.Entity("Heyday.Domain.Entities.User", b =>
                 {
-                    b.Navigation("schedules");
-
                     b.Navigation("user_schedule");
                 });
 #pragma warning restore 612, 618

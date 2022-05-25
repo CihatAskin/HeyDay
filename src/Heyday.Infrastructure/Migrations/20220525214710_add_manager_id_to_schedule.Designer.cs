@@ -3,6 +3,7 @@ using System;
 using Heyday.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Heyday.Infrastructure.Migrations
 {
     [DbContext(typeof(heydayContext))]
-    partial class heydayContextModelSnapshot : ModelSnapshot
+    [Migration("20220525214710_add_manager_id_to_schedule")]
+    partial class add_manager_id_to_schedule
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
