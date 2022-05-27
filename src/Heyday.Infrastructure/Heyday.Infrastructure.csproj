@@ -16,7 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core\Heyday.Application\Heyday.Application.csproj" />
     <ProjectReference Include="..\Core\Heyday.Domain\Heyday.Domain.csproj" />
+    <ProjectReference Include="..\Heyday.Shared\Heyday.Shared.csproj" />
   </ItemGroup>
 
 </Project>

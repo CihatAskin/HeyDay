@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Heyday.Shared\Heyday.Shared.csproj" />
+    <ProjectReference Include="..\Heyday.Domain\Heyday.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

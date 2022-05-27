@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heyday.Application", "src\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heyday.Infrastructure", "src\Heyday.Infrastructure\Heyday.Infrastructure.csproj", "{5411B9B4-443B-4B64-A2A9-4667A1199060}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heyday.Shared", "src\Heyday.Shared\Heyday.Shared.csproj", "{B6167D9A-4090-4E55-B52A-E23139849D2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{5411B9B4-443B-4B64-A2A9-4667A1199060}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5411B9B4-443B-4B64-A2A9-4667A1199060}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5411B9B4-443B-4B64-A2A9-4667A1199060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6167D9A-4090-4E55-B52A-E23139849D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6167D9A-4090-4E55-B52A-E23139849D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6167D9A-4090-4E55-B52A-E23139849D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6167D9A-4090-4E55-B52A-E23139849D2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 		{20CD1DCA-67F3-433E-A946-0A08A22E0070} = {D170301E-2D94-4394-920B-558A7CA7CD14}
 		{FBBA8F5E-B9AF-417F-8020-2EA65150ED22} = {20CD1DCA-67F3-433E-A946-0A08A22E0070}
 		{5411B9B4-443B-4B64-A2A9-4667A1199060} = {D170301E-2D94-4394-920B-558A7CA7CD14}
+		{B6167D9A-4090-4E55-B52A-E23139849D2B} = {D170301E-2D94-4394-920B-558A7CA7CD14}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0D0937F4-525C-416C-87C8-F8E386CB9FEB}
