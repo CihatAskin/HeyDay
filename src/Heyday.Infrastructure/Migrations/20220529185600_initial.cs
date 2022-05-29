@@ -10,33 +10,11 @@ namespace Heyday.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "schedules",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uuid", nullable: false),
-                    manager_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    title = table.Column<string>(type: "text", nullable: false),
-                    notes = table.Column<string>(type: "text", nullable: true),
-                    is_executed = table.Column<bool>(type: "boolean", nullable: false),
-                    start_date = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    period = table.Column<TimeSpan>(type: "interval", nullable: false),
-                    created_by = table.Column<Guid>(type: "uuid", nullable: false),
-                    created_at = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    updated_by = table.Column<Guid>(type: "uuid", nullable: true),
-                    updated_at = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    deleted_by = table.Column<Guid>(type: "uuid", nullable: true),
-                    deleted_at = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_schedules", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "users",
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
+                    email = table.Column<string>(type: "text", nullable: false),
                     name = table.Column<string>(type: "text", nullable: false),
                     created_by = table.Column<Guid>(type: "uuid", nullable: false),
                     created_at = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
@@ -51,12 +29,42 @@ namespace Heyday.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "schedules",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    title = table.Column<string>(type: "text", nullable: false),
+                    period = table.Column<TimeSpan>(type: "interval", nullable: false),
+                    manager_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    result = table.Column<string>(type: "text", nullable: true),
+                    is_executed = table.Column<bool>(type: "boolean", nullable: false),
+                    start_date = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
+                    created_by = table.Column<Guid>(type: "uuid", nullable: false),
+                    created_at = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    updated_by = table.Column<Guid>(type: "uuid", nullable: true),
+                    updated_at = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
+                    deleted_by = table.Column<Guid>(type: "uuid", nullable: true),
+                    deleted_at = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_schedules", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_schedules_users_manager_id",
+                        column: x => x.manager_id,
+                        principalTable: "users",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "user_schedule",
                 columns: table => new
                 {
                     user_id = table.Column<Guid>(type: "uuid", nullable: false),
                     schedule_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    suitable_hours = table.Column<string>(type: "jsonb", nullable: false)
+                    suitable_hours = table.Column<string>(type: "jsonb", nullable: false),
+                    exception = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -74,6 +82,11 @@ namespace Heyday.Infrastructure.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_schedules_manager_id",
+                table: "schedules",
+                column: "manager_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_user_schedule_schedule_id",

@@ -9,6 +9,7 @@ namespace Heyday.Domain.Entities
 {
     public class User : AuditableEntity
     {
+        public string email { get; set; }
         public string name { get; set; }
 
         public IList<UserSchedule> user_schedule { get; set; }=new List<UserSchedule>();

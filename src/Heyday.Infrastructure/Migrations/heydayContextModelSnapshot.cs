@@ -46,11 +46,11 @@ namespace Heyday.Infrastructure.Migrations
                     b.Property<Guid>("manager_id")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("notes")
-                        .HasColumnType("text");
-
                     b.Property<TimeSpan>("period")
                         .HasColumnType("interval");
+
+                    b.Property<string>("result")
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("start_date")
                         .HasColumnType("timestamp without time zone");
@@ -90,6 +90,10 @@ namespace Heyday.Infrastructure.Migrations
                     b.Property<Guid?>("deleted_by")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -112,6 +116,9 @@ namespace Heyday.Infrastructure.Migrations
 
                     b.Property<Guid>("schedule_id")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("exception")
+                        .HasColumnType("text");
 
                     b.Property<string>("suitable_hours")
                         .IsRequired()

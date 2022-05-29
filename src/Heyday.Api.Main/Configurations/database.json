@@ -1,0 +1,6 @@
+{
+  "DatabaseSettings": {
+    "DBProvider": "postgresql",
+    "ConnectionString": "Host=localhost;Database=heyday;Username=local_user;Password=local_user+-2020*"
+  }
+}

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Heyday.Application.Common.Contracts
 {
-    public interface IRepositoryAsync
+    public interface IRepositoryAsync : ITransientService
     {
         Task<T?> GetByIdAsync<T>(Guid id, CancellationToken cancellationToken = default)
         where T : BaseEntity;

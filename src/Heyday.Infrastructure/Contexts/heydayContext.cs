@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Heyday.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Logging;
 
 namespace Heyday.Infrastructure.Contexts
 {
@@ -24,8 +25,10 @@ namespace Heyday.Infrastructure.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=localhost;Database=heyday;Username=local_user;Password=local_user+-2020*");
+                optionsBuilder.LogTo(Console.WriteLine,LogLevel.Information).UseNpgsql("Host=localhost;Database=heyday;Username=local_user;Password=local_user+-2020*");
+                AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             }
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

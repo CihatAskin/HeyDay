@@ -9,6 +9,7 @@ namespace Heyday.Domain.Entities
     public class UserSchedule
     {
         public string suitable_hours { get; set; } = null!;
+        public string? exception { get; set; }
 
         public Guid user_id { get; set; }
         public User user { get; set; }

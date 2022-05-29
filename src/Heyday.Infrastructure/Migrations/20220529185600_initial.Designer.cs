@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Heyday.Infrastructure.Migrations
 {
     [DbContext(typeof(heydayContext))]
-    [Migration("20220525214710_add_manager_id_to_schedule")]
-    partial class add_manager_id_to_schedule
+    [Migration("20220529185600_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,11 +48,11 @@ namespace Heyday.Infrastructure.Migrations
                     b.Property<Guid>("manager_id")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("notes")
-                        .HasColumnType("text");
-
                     b.Property<TimeSpan>("period")
                         .HasColumnType("interval");
+
+                    b.Property<string>("result")
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("start_date")
                         .HasColumnType("timestamp without time zone");
@@ -92,6 +92,10 @@ namespace Heyday.Infrastructure.Migrations
                     b.Property<Guid?>("deleted_by")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -114,6 +118,9 @@ namespace Heyday.Infrastructure.Migrations
 
                     b.Property<Guid>("schedule_id")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("exception")
+                        .HasColumnType("text");
 
                     b.Property<string>("suitable_hours")
                         .IsRequired()
