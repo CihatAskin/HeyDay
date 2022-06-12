@@ -1,7 +1,8 @@
-﻿using Heyday.Infrastructure.Contexts;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
+using Heyday.Infrastructure.Contexts;
+using Heyday.Infrastructure.Extensions.SubExtensions;
 
 namespace Heyday.Infrastructure.Extensions;
 
@@ -10,6 +11,9 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
     {
         services.AddServices();
+        services.AddSettings(config);
+
+        services.AddCorsPolicy();
         //services.AddApiVersioning(config =>
         //{
         //    config.DefaultApiVersion = new ApiVersion(1, 0);
