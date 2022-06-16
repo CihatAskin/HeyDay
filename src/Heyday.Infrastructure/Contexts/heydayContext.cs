@@ -46,7 +46,7 @@ namespace Heyday.Infrastructure.Contexts
             modelBuilder.Entity<UserSchedule>(entity =>
             {
                 entity.HasKey(us => new { us.user_id, us.schedule_id });
-                entity.Property(e => e.suitable_hours).HasColumnType("jsonb");
+                entity.Property(e => e.suitable_hour_keys);
             });
 
             modelBuilder.Entity<UserSchedule>()
