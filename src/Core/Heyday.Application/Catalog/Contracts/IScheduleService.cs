@@ -9,5 +9,7 @@ public interface IScheduleService : ITransientService
 
     Task<Result<Guid>> CreateScheduleAsync(CreateScheduleRequest request);
 
+    Task<PaginatedResult<ScheduleSearchDto>> SearchAsync(ScheduleListFilter filter);
+
 }
 

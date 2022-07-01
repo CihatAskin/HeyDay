@@ -48,5 +48,14 @@ namespace Heyday.Application.Catalog.Services
             await _repository.SaveChangesAsync();
             return await Result<Guid>.SuccessAsync(brandId);
         }
+
+        public async Task<PaginatedResult<ScheduleSearchDto>> SearchAsync(ScheduleListFilter filter)
+        {
+            var filters = new Filters<Schedule>();
+
+            filters.Add(filter.ManagerId.HasValue, x => x.manager_id.Equals(filter.ManagerId!.Value));
+
+            return await _repository.GetSearchResultsAsync<Schedule, ScheduleSearchDto>(filter.PageNumber, filter.PageSize, filter.OrderBy, filters, filter.AdvancedSearch, filter.Keyword);
+        }
     }
 }

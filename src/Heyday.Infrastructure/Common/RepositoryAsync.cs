@@ -7,8 +7,12 @@ using Microsoft.EntityFrameworkCore;
 using Heyday.Application.Common.Contracts;
 using Heyday.Domain.Contracts;
 using Heyday.Infrastructure.Contexts;
-using Heyday.Shared.Model;
+using Heyday.Shared;
 using Heyday.Application.Common.Exceptions;
+using Heyday.Application.Wrapper;
+using Heyday.Shared.Filters;
+using Heyday.Application.Catalog.Contracts;
+using Heyday.Infrastructure.Extensions.SubExtensions;
 
 namespace Heyday.Infrastructure.Common;
 
@@ -128,5 +132,27 @@ public class RepositoryAsync : IRepositoryAsync
     public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         return _dbContext.SaveChangesAsync(cancellationToken);
+    }
+
+    public Task<PaginatedResult<TDto>> GetSearchResultsAsync<T, TDto>(int pageNumber, int pageSize = int.MaxValue, string[]? orderBy = null, Search? advancedSearch = null, string? keyword = null, Expression<Func<T, bool>>? expression = null, CancellationToken cancellationToken = default)
+        where T : BaseEntity
+        where TDto : IDto
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<PaginatedResult<TDto>> GetSearchResultsAsync<T, TDto>(int pageNumber, int pageSize = int.MaxValue, string[]? orderBy = null, Filters<T>? filters = null, Search? advancedSearch = null, string? keyword = null, CancellationToken cancellationToken = default)
+      where T : BaseEntity
+      where TDto : IDto
+    {
+        IQueryable<T> query = _dbContext.Set<T>();
+        if (filters is not null)
+            query = query.ApplyFilter(filters);
+        if (advancedSearch?.Fields.Count > 0 && !string.IsNullOrEmpty(advancedSearch.Keyword))
+            query = query.AdvancedSearch(advancedSearch);
+        else if (!string.IsNullOrEmpty(keyword))
+            query = query.SearchByKeyword(keyword);
+        query = query.ApplySort(orderBy);
+        return query.ToMappedPaginatedResultAsync<T, TDto>(pageNumber, pageSize);
     }
 }

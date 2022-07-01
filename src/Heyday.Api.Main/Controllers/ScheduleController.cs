@@ -19,6 +19,15 @@ namespace Heyday.Api.Main.Controllers
             return Ok(await _service.CreateScheduleAsync(request));
         }
 
+
+        [HttpPost("search")]
+        public async Task<IActionResult> SearchAsync(ScheduleListFilter filter)
+        {
+            Console.Clear();
+            var products = await _service.SearchAsync(filter);
+            return Ok(products);
+        }
+
         [HttpGet("/Test")]
         public IActionResult Test()
         {

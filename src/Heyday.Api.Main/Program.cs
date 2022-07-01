@@ -1,9 +1,3 @@
-
-
-
-
-
-
 using Heyday.Api.Main.Extensions;
 using Heyday.Infrastructure.Extensions;
 using Microsoft.OpenApi.Models;

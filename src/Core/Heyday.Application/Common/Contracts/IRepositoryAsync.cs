@@ -1,5 +1,8 @@
-﻿using Heyday.Domain.Contracts;
-using Heyday.Shared.Model;
+﻿using Heyday.Application.Catalog.Contracts;
+using Heyday.Application.Wrapper;
+using Heyday.Domain.Contracts;
+using Heyday.Shared;
+using Heyday.Shared.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +52,18 @@ namespace Heyday.Application.Common.Contracts
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 
         #endregion Save Changes
+
+        #region Paginate
+
+        Task<PaginatedResult<TDto>> GetSearchResultsAsync<T, TDto>(int pageNumber, int pageSize = int.MaxValue, string[]? orderBy = null, Search? advancedSearch = null, string? keyword = null, Expression<Func<T, bool>>? expression = null, CancellationToken cancellationToken = default)
+        where T : BaseEntity
+        where TDto : IDto;
+
+        Task<PaginatedResult<TDto>> GetSearchResultsAsync<T, TDto>(int pageNumber, int pageSize = int.MaxValue, string[]? orderBy = null, Filters<T>? filters = null, Search? advancedSearch = null, string? keyword = null, CancellationToken cancellationToken = default)
+        where T : BaseEntity
+        where TDto : IDto;
+
+        #endregion Paginate
 
     }
 }
